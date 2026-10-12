@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #3b003b;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: #5a205a;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 16px;
+}
+
+.eca{
+    display: flex;
+    align-items: center;
+    width: 60px;
+    border-radius: 50%;
+}
+/* .title {
+    font-weight: bold;
+    font-size: 14px;
+} */
+
+.icon-profile {
+    border-radius: 50%;
+    width: 50%;
+    margin: auto;
+    gap: 10px;
+  margin-top: 2rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+h2 {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-size: 22px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.input-group input {
+  width: 90%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #7b3c7b;
+  color: white;
+  font-size: 14px;
+}
+
+.input-group i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  margin: auto;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #8244c8;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #9d5dff;
+}
+
+.login-link, .website-link {
+  margin-top: 1.2rem;
+  font-size: 13px;
+}
+
+.login-link a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+}
