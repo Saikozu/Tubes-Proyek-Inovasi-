@@ -15,6 +15,17 @@ class NotifikasiController extends Controller
         return view('notifikasi', compact('notifications'));
     }
 
+    public function bap($id)
+    {
+        $notification = Notification::with('laporan')
+            ->where('user_id', auth()->id())
+            ->findOrFail($id);
+
+        abort_unless($notification->laporan?->status === 'selesai', 404);
+
+        return view('bap', ['laporan' => $notification->laporan]);
+    }
+
     // tandai notifikasi sebagai dibaca (opsional)
     public function read($id)
     {

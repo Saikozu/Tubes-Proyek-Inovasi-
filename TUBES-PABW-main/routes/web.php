@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\Admin\BeritaController as AdminBeritaController;
+use App\Http\Controllers\PetugasController;
 
 
 // Public berita pages
@@ -67,7 +68,14 @@ Route::middleware('auth')->group(function () {
 
     // HALAMAN LAIN
     Route::get('/notifikasi', [NotifikasiController::class, 'index'])->name('notifikasi');
+    Route::get('/notifikasi/{id}/bap', [NotifikasiController::class, 'bap'])->name('notifikasi.bap');
     Route::get('/kotaktinjauan', function () {return view('kotaktinjauan');})->name('kotaktinjauan');
+
+    Route::middleware('isPetugas')->prefix('petugas')->name('petugas.')->group(function () {
+        Route::get('/laporan', [PetugasController::class, 'index'])->name('laporan');
+        Route::get('/laporan/{laporan}', [PetugasController::class, 'show'])->name('laporan.show');
+        Route::post('/laporan/{laporan}/selesai', [PetugasController::class, 'complete'])->name('laporan.complete');
+    });
 
     Route::middleware('isAdmin')->group(function () {
 

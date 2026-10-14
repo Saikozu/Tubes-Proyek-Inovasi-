@@ -83,7 +83,11 @@
         <div class="notification-container">
 
             @forelse ($notifications as $notif)
-                <div class="notification">
+                @if ($notif->laporan?->status === 'selesai')
+                    <a class="notification" href="{{ route('notifikasi.bap', $notif->id) }}" style="display:block;color:inherit;text-decoration:none">
+                @else
+                    <div class="notification">
+                @endif
                     <p class="notif-title">{{ $notif->title }}</p>
                     <p class="notif-message">{{ $notif->message }}</p>
                     @if($notif->laporan)
@@ -99,7 +103,14 @@
                     <small class="notif-time">
                         {{ $notif->created_at->diffForHumans() }}
                     </small>
-                </div>
+                    @if ($notif->laporan?->status === 'selesai')
+                        <strong class="d-block mt-2">Buka Berita Acara Pemeriksaan</strong>
+                    @endif
+                @if ($notif->laporan?->status === 'selesai')
+                    </a>
+                @else
+                    </div>
+                @endif
             @empty
                 <p class="empty-notif">Tidak ada notifikasi.</p>
             @endforelse

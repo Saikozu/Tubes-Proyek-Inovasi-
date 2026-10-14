@@ -21,7 +21,7 @@ class AdminController extends Controller
     public function updateStatus(Request $request, $id)
     {
         $request->validate([
-            'status' => 'required|in:pending,approved,rejected'
+            'status' => 'required|in:pending,approved,rejected,selesai',
         ]);
 
         $laporan = BuatLaporan::findOrFail($id);
@@ -37,6 +37,7 @@ class AdminController extends Controller
                 'pending'  => 'Laporan Anda sedang diproses.',
                 'approved' => 'Laporan Anda telah disetujui.',
                 'rejected' => 'Laporan Anda ditolak.',
+                'selesai' => 'Laporan Anda telah selesai ditindaklanjuti. Berita Acara Pemeriksaan sudah tersedia.',
             },
         ]);
 

@@ -76,7 +76,7 @@
                     <td>
                         <span
                             class="badge 
-                    {{ $item->status == 'pending' ? 'bg-warning' : ($item->status == 'approved' ? 'bg-success' : 'bg-danger') }}">
+                    {{ $item->status == 'pending' ? 'bg-warning' : (in_array($item->status, ['approved', 'selesai'], true) ? 'bg-success' : 'bg-danger') }}">
                             {{ strtoupper($item->status) }}
                         </span>
                     </td>
@@ -84,9 +84,10 @@
                         <form action="{{ route('admin.laporan.status', $item->id) }}" method="POST">
                             @csrf
                             <select name="status" class="form-select form-select-sm mb-1">
-                                <option value="pending">Pending</option>
-                                <option value="approved">Approved</option>
-                                <option value="rejected">Rejected</option>
+                                <option value="pending" @selected($item->status === 'pending')>Pending</option>
+                                <option value="approved" @selected($item->status === 'approved')>Approved</option>
+                                <option value="rejected" @selected($item->status === 'rejected')>Rejected</option>
+                                <option value="selesai" @selected($item->status === 'selesai')>Selesai</option>
                             </select>
                             <button class="btn btn-primary btn-sm w-100">Simpan</button>
                         </form>
